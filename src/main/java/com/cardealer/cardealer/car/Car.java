@@ -17,31 +17,31 @@ public class Car {
         return producer;
     }
 
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+
     public String getModelName() {
         return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
     public String getVersion() {
         return version;
     }
 
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     public int getProductionYear() {
         return productionYear;
     }
 
-    void setProducer(String producer) {
-        this.producer = producer;
-    }
-
-    void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    void setVersion(String version) {
-        this.version = version;
-    }
-
-    void setProductionYear(int productionYear) {
+    public void setProductionYear(int productionYear) {
         this.productionYear = productionYear;
     }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cars list</title>
+</head>
+<body>
+
+<h2>Current cars list</h2>
+<br/>
+
+<table>
+    <thead>
+    <th>Producer</th>
+    <th>Model Name</th>
+    <th>Version</th>
+    <th>Production Year</th>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td><span th:text="${car.producer}">producer</span></td>
+        <td><span th:text="${car.modelName}">model name</span></td>
+        <td><span th:text="${car.version}">version</span></td>
+        <td><span th:text="${car.productionYear}">version</span></td>
+
+    </tr>
+    </tbody>
+
+
+</table>
+
+
+<br/>
+<form action="/">
+    <input type="submit" value="Go to start page">
+</form>
+
+</body>
+</html>
