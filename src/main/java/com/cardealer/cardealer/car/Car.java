@@ -1,16 +1,25 @@
 package com.cardealer.cardealer.car;
 
 public class Car {
+
+    private int id;
     private String producer;
     private String modelName;
     private String version;
     private int productionYear;
+    private static int counter = 0;
 
     public Car(String producer, String modelName, String version, int productionYear) {
+        this.id = counter;
         this.producer = producer;
         this.modelName = modelName;
         this.version = version;
         this.productionYear = productionYear;
+        counter++;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getProducer() {

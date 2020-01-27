@@ -5,6 +5,7 @@ import com.cardealer.cardealer.car.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -34,11 +35,17 @@ public class ProgramController {
             @RequestParam(value = "version", required = false) String version,
             @RequestParam(value = "productionYear", required = false) Integer productionYear
     ) {
-        if (producer != null && modelName != null && version != null) {
+        if (producer != null && modelName != null && version != null && productionYear != null) {
             carService.addCar(producer, modelName, version, productionYear);
         }
         return "addingCar";
     }
 
-
+    @GetMapping("/deleteCar/{id}")
+    public String deleteCarById(
+            @PathVariable String id
+    ) {
+        carService.deleteCarById(Integer.parseInt(id));
+        return "redirect:/carsList";
+    }
 }

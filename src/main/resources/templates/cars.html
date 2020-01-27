@@ -23,6 +23,14 @@
         <td><span th:text="${car.version}">version</span></td>
         <td><span th:text="${car.productionYear}">version</span></td>
 
+        <td>
+            <form th:action="@{/deleteCar/{id}(id=${car.id})}" th:object="${car}">
+                <input type="hidden" field="${car}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+
+
     </tr>
     </tbody>
 
