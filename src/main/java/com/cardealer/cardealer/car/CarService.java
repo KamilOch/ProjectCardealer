@@ -20,8 +20,9 @@ public class CarService {
 
     }
 
-    public void addCar(Car car) {
-        cars.add(car);
+    public void addCar(String producer, String modelName, String version, int productionYear) {
+        Car newCar = new Car(producer, modelName, version, productionYear);
+        cars.add(newCar);
     }
 
 
