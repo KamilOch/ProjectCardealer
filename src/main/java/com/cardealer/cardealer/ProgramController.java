@@ -43,9 +43,32 @@ public class ProgramController {
 
     @GetMapping("/deleteCar/{id}")
     public String deleteCarById(
-            @PathVariable String id
+            @PathVariable Integer id
     ) {
-        carService.deleteCarById(Integer.parseInt(id));
+        carService.deleteCarById(id);
         return "redirect:/carsList";
     }
+
+    @GetMapping("/editCar/{id}")
+    public String editCar(
+            @PathVariable Integer id,
+            Model model
+    ) {
+        Car editedCar = carService.findById(id);
+        model.addAttribute("editedCar", editedCar);
+        return "editingCar";
+    }
+
+    @GetMapping("/saveEditedCar")
+    public String saveEditedCar(
+            @RequestParam(value = "id", required = false) Integer id,
+            @RequestParam(value = "producer", required = false) String producer,
+            @RequestParam(value = "modelName", required = false) String modelName,
+            @RequestParam(value = "version", required = false) String version,
+            @RequestParam(value = "productionYear", required = false) Integer productionYear
+    ) {
+        carService.editCar(id, producer, modelName, version, productionYear);
+        return "redirect:/carsList";
+    }
+
 }

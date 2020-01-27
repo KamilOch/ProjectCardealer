@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Editing car page</title>
+</head>
+<body>
+
+<h2> Edit car</h2>
+<br/>
+<form action="/saveEditedCar">
+    <input type="hidden" name="id" th:value="${editedCar.id}">
+    <p>New producer:<input id="producer" name="producer" th:value="${editedCar.producer}"></p>
+    <p>New model name:<input id="modelName" name="modelName" th:value="${editedCar.modelName}"></p>
+    <p>New version:<input id="version" , name="version" th:value="${editedCar.version}"></p>
+    <p>New production year:<input id="productionYear" name="productionYear" th:value="${editedCar.productionYear}"></p>
+    <input type="submit" value="Confirm">
+</form>
+<br/>
+
+<form action="/carsList">
+    <input type="submit" value="Go to car list">
+</form>
+<br/>
+<form action="/">
+    <input type="hidden" value="Go to statr page">
+</form>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.cardealer.cardealer.car;
 
+import javafx.animation.Animation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,13 +34,27 @@ public class CarService {
     }
 
     public void deleteCarById(int id) {
-        for (Car car : cars) {
-            if (id == car.getId()) {
-                cars.remove(car);
-                break;
-            }
-        }
+        Car deletedCar = findById(id);
+        cars.remove(deletedCar);
     }
 
 
+    public Car findById(int id) {
+        Car carById = null;
+        for (Car car : cars) {
+            if (id == car.getId()) {
+                carById = car;
+                break;
+            }
+        }
+        return carById;
+    }
+
+    public void editCar(int id, String producer, String modelName, String version, int productionYear) {
+        Car editedCar = findById(id);
+        editedCar.setProducer(producer);
+        editedCar.setModelName(modelName);
+        editedCar.setVersion(version);
+        editedCar.setProductionYear(productionYear);
+    }
 }
